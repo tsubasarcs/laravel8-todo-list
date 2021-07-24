@@ -19,10 +19,12 @@ class ItemFactory extends Factory
      *
      * @return array
      */
-    public function definition()
+    public function definition(): array
     {
         return [
-            //
+            'title' => $this->faker->realText(140),
+            'content' => $this->faker->realText(300),
+            'attachment' => $this->faker->realText(500)
         ];
     }
 }
