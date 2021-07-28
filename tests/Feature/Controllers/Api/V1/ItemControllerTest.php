@@ -3,7 +3,9 @@
 namespace Tests\Feature\Controllers\Api\V1;
 
 use App\Models\Item;
+use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Laravel\Passport\Passport;
 use LaravelJsonApi\Testing\MakesJsonApiRequests;
 use Tests\TestCase;
 
@@ -11,6 +13,14 @@ class ItemControllerTest extends TestCase
 {
     use RefreshDatabase;
     use MakesJsonApiRequests;
+
+    protected function setUp(): void
+    {
+        parent::setUp();
+
+        $user = User::factory()->create();
+        Passport::actingAs($user);
+    }
 
     /**
      * @test
