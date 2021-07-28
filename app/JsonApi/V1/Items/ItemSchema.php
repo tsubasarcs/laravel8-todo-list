@@ -35,8 +35,8 @@ class ItemSchema extends Schema
             Str::make('title'),
             Str::make('content'),
             Str::make('attachment'),
-            DateTime::make('createdAt')->sortable()->readOnly(),
-            DateTime::make('updatedAt')->sortable()->readOnly(),
+            DateTime::make('createdAt')->useTimezone('UTC')->sortable()->readOnly(),
+            DateTime::make('updatedAt')->useTimezone('UTC')->sortable()->readOnly(),
         ];
     }
 

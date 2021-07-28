@@ -22,5 +22,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 JsonApiRoute::server('v1')
     ->prefix('v1')
     ->resources(function ($server) {
-        $server->resource('items', ItemController::class);
+        $server->resource('items', ItemController::class)->actions(function ($actions) {
+            $actions->delete('purge');
+        });;
     });
