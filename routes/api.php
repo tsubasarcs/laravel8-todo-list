@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\V1\ItemController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -18,4 +19,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-
+JsonApiRoute::server('v1')
+    ->prefix('v1')
+    ->resources(function ($server) {
+        $server->resource('items', ItemController::class);
+    });
