@@ -36,4 +36,14 @@ class Server extends BaseServer
             ItemSchema::class,
         ];
     }
+
+    /**
+     * Determine if the server is authorizable.
+     *
+     * @return bool
+     */
+    public function authorizable(): bool
+    {
+        return false;
+    }
 }
